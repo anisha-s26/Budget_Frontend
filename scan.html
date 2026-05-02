@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BudgetBuddy | Scan Bill</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="moving-text-container">
+                    <span class="moving-text" style="color: #6366f1;">📷 Scanner Mode</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="index.html" class="nav-link">← Back To Dashboard</a>
+                <button id="logout-btn" class="nav-logout">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-content-wrapper">
+        <div class="analysis-card-glass">
+            <div class="chart-header">
+                <span class="pulse-icon" style="background: #6366f1;"></span>
+                <h3>Intelligent Bill Extraction</h3>
+            </div>
+
+            <div class="scan-container">
+                <div class="upload-box" id="drop-zone">
+                    <input type="file" id="bill-input" accept="image/*, .pdf" hidden>
+                    <div class="upload-content">
+                        <p id="status-text">Click to Upload or Drag Bill/Document Here</p>
+                        <img id="preview-img" style="display:none; max-width:100%; margin-top:15px; border-radius:12px; border: 2px solid var(--neo-border);">
+                        <div id="doc-icon" style="display:none; font-size: 50px; margin-top:15px;">📄</div>
+                    </div>
+                </div>
+
+                <div class="scan-results" id="results-area" style="display:none;">
+                    <div class="results-header">
+                        <h3 style="margin-top: 2rem; color: var(--primary);">✨ Detected Details</h3>
+                        <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 1.5rem;">Verify the details below before saving.</p>
+                    </div>
+
+                    <div class="neo-input-group">
+                        <label>Detected Amount (₹)</label>
+                        <input type="number" id="scanned-amount" step="0.01" placeholder="0.00">
+                    </div>
+
+                    <div class="neo-input-group">
+                        <label>Merchant / Description</label>
+                        <input type="text" id="scanned-desc" placeholder="Enter description">
+                    </div>
+
+                    <button id="save-scan-btn" class="add-btn-primary" style="width: 100%; margin-top: 1rem;">
+                        Confirm & Add to History
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="scan.js"></script>
+</body>
+</html>

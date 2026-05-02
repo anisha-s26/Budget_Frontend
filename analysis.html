@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker | Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+    <div class="moving-text-container">
+        <span class="moving-text" style="color: #ec4899;">📊 Analysis Mode</span>
+    </div>
+</div>
+            <div class="nav-right">
+                <a href="index.html" class="nav-link">← Back To Dashboard</a>
+
+    <button id="logout-btn" class="nav-logout">Logout</button>
+</div>
+        </div>
+    </nav>
+
+    <div class="container main-content-wrapper">
+        <div class="analysis-card-glass">
+            <div class="chart-header">
+                <span class="pulse-icon"></span>
+                <h3>Live Expense Distribution</h3>
+            </div>
+
+            <div class="analysis-content">
+                <div class="chart-wrapper">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+                
+                <div id="custom-legend" class="legend-container">
+                    <div class="empty-state-text">Loading spending data...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="analysis.js"></script>
+</body>
+</html>

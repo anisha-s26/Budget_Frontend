@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+
+    <div id="auth-container" class="auth-wrapper">
+        <img src="cute.img.png" alt="Logo" class="top-left-logo">
+        <div class="auth-card-glass">
+            
+
+            <div class="auth-left">
+                <div class="illustration-container">
+                    <img src="an.png" alt="Expense Illustration" class="piggy-img">
+                </div>
+            </div>
+            <div class="auth-right">
+                <h2 id="auth-title">Welcome Back 👋</h2>
+                <form id="auth-form">
+                    <div class="neo-input-group">
+                        <input type="email" id="auth-email" placeholder="Email" required>
+                    </div>
+                    <div class="neo-input-group password-wrapper">
+                        <input type="password" id="auth-password" placeholder="Password" required>
+                        <span id="password-toggle" class="eye-icon">👁️</span>
+                    </div>
+                    <p id="toggle-auth" class="signup-link">
+                        Don't have account sign up, <span>here</span>
+                    </p>
+                    <div class="btn-container">
+                        <button type="submit" id="auth-submit-btn" class="neo-button">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="dashboard-container" class="hidden">
+        <nav class="main-nav">
+            <div class="nav-left">
+                <div class="moving-text-container">
+                    <span class="moving-text">💰 BudgetBuddy</span>
+                </div>
+            </div>
+            
+            <div class="nav-right">
+                <input type="file" id="bill-upload" accept="image/*" style="display: none;">
+                <a href="scan.html" class="scan-bills-btn">
+                 <span>📷</span> Scan Bill
+                 </a>
+
+                <a href="analysis.html" class="nav-link">Analysis</a>
+                <button id="dark-mode-toggle" class="nav-icon-btn">🌙</button>
+                <button id="logout-btn" class="nav-logout">Logout</button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="stats-container">
+                <div class="card green">
+                    <div class="card-title">Total Expenses</div>
+                    <div class="amount" id="total-expenses">₹0.00</div>
+                    <div class="sub-text" id="transaction-count">0 transactions</div>
+                </div>
+                <div class="card blue">
+                    <div class="card-title">This Month</div>
+                    <div class="amount" id="monthly-expenses">₹0.00</div>
+                    <div class="sub-text">March 2026</div>
+                </div>
+                <div class="card pink">
+                    <div class="card-title">Today</div>
+                    <div class="amount" id="daily-expenses">₹0.00</div>
+                    <div class="sub-text">Active Today</div>
+                </div>
+                <div class="card orange">
+                    <div class="card-title">Average</div>
+                    <div class="amount" id="avg-expense">₹0.00</div>
+                    <div class="sub-text">per transaction</div>
+                </div>
+            </div>
+
+            <div class="main-grid">
+                <section class="form-section">
+                    <div class="form-header"><h3>Add New Expense</h3></div>
+                    <form id="expense-form" class="refined-form">
+                        <input type="date" id="date" required>
+                        <input type="number" id="amount" placeholder="Amount (₹)" required>
+                        <input type="text" id="description" placeholder="Description (e.g. Dinner)" required> 
+                        <select id="category" class="refined-form-input" required>
+                            <option value="" disabled selected>Select Category</option>
+                            <option value="Food">Food</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Bills">Bills</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Health">Health</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Education">Education</option>
+                            <option value="Personal Care">Personal Care</option>
+                            <option value="Investment">Investment</option>
+                            <option value="Misc">Misc</option>
+                        </select>
+                        <button type="submit" class="add-btn-primary">+ Add Expense</button>
+                    </form>
+                </section>
+
+                <section class="history-section">
+                    <div class="history-header">
+                        <h3>Expense History</h3>
+                    </div>
+                    <div id="history-list" class="history-content">
+                        <div class="empty-state">
+                            <p>Loading your data...</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
